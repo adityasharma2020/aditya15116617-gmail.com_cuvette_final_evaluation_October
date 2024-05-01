@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz@9..40&family=Inter&family=Roboto:wght@100;700&family=Single+Day&display=swap');
+@import url('../css/variables.css');
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+}
+
+html {
+	/* font-size: 90%; */
+	scroll-behavior: smooth;
+	background-color: white;
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body {
+	box-sizing: border-box;
+	font-family: 'Lato', sans-serif;
+	font-weight: 400;
+	line-height: 1.6;
+	color: var(--white-color);
+	overflow-x: hidden;
+}
+
+button {
+	cursor: pointer;
+	outline: none;
+}
+
+a {
+	text-decoration: none;
+	color: initial;
+}
+
+ul {
+	list-style: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.disabled-link {
+	pointer-events: none;
+}
+
+*::-webkit-scrollbar {
+	width: 10px;
+	height: 4px;
+	background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+	border-radius: 1px;
+	background: transparent;
+	border-radius: 10px;
+}

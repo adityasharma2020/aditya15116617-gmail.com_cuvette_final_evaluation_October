@@ -1,0 +1,12 @@
+:root {
+	--bg-color: rgba(0, 0, 0, 0.949);
+	--backdropr: rgba(0, 0, 0, 0.2);
+	--error-red: #f01010;
+	--white-color: #fbfbfb;
+
+	--button-blue: #73abff;
+	--button-red: #ff7373;
+	--button-green: #7eff73;
+
+	--border-blue: #00acd2;
+}

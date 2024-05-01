@@ -1,0 +1,109 @@
+@import '../../../assets/css/main.css';
+
+.outerContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: transform 0.2s linear;
+	border-radius: 10px;
+	position: relative;
+}
+.mainContainer {
+	position: relative;
+	width: 250px;
+	height: 400px;
+	overflow: hidden;
+	cursor: pointer;
+	border-radius: 10px;
+	border: 2px solid rgb(233, 233, 233);
+}
+
+.mainContainer::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.208);
+	z-index: 1;
+	transition: background-color 0.2s linear;
+}
+
+.mainContainer:hover::after {
+	background-color: rgba(0, 0, 0, 0);
+}
+
+.outerContainer:hover {
+	transform: scale(1.05);
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+		rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.imageContainer {
+	width: 100%;
+	height: 100%;
+}
+
+.imageContainer img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.loading {
+	filter: blur(20px);
+	background-color: rgba(7, 7, 7, 0.874);
+}
+
+.storyInfo {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	min-height: 8rem;
+	display: flex;
+	padding: 1rem 0.8rem 2rem 0.8rem;
+	justify-content: center;
+	align-items: start;
+	flex-direction: column;
+	text-align: start;
+	background: linear-gradient(
+		to bottom,
+		rgba(0, 0, 0, 0.022) 10%,
+		rgba(0, 0, 0, 0.85) 20%,
+		rgba(0, 0, 0, 9) 80%
+	);
+}
+
+
+.storyInfo .h1 {
+	font-size: 1.2rem;
+	color: white;
+	text-transform: capitalize;
+}
+.storyInfo .p {
+	font-size: 0.8rem;
+}
+
+.editButtonContainer {
+	position: absolute;
+	bottom: -1rem;
+	left: 50%;
+	transform: translate(-50%);
+	color: black;
+	padding: 0.5rem 1.5rem;
+	background-color: white;
+	z-index: 3;
+	display: flex;
+	border-radius: 50px;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+	cursor: pointer;
+	box-shadow: rgb(38, 57, 77) 0px 10px 20px -15px;
+}
+
+.editIcon {
+	width: 1rem;
+	height: 1rem;
+	fill: transparent;
+}

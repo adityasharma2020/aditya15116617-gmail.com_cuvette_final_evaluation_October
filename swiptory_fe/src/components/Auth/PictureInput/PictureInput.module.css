@@ -1,0 +1,96 @@
+@import '../../../assets/css/main.css';
+.mainContainer {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	gap: 1rem;
+	align-items: center;
+}
+
+.label {
+	font-size: 1rem;
+	font-weight: bold;
+	display: flex;
+	justify-content: start;
+	width: auto;
+	align-items: center;
+	/* width: 50% */
+}
+
+.imageContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+	flex-direction: column;
+}
+
+.imageViewer {
+	width: 3rem;
+	height: 3rem;
+	border: 1px solid black;
+	border-radius: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	overflow: hidden;
+	align-items: center;
+}
+.imageViewer img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.removeButton {
+	width: 4rem;
+	font-size: 0.7rem;
+	border: 1px solid black;
+	cursor: pointer;
+	padding: 0.1rem;
+	border-radius: 50px;
+}
+
+.button {
+	width: 10rem;
+	padding: 0.5rem 1rem;
+	font-size: 0.8rem;
+	border: 1px solid var(--button-blue);
+	background-color: var(--white-color);
+	border-radius: 50px;
+	cursor: pointer;
+}
+
+.button:hover {
+	background-color: #0056b3;
+	border: 1px solid white;
+	color: white;
+}
+
+.button:active {
+	background-color: #004080;
+	color: white;
+}
+
+.errorMessage {
+	font-size: 1rem;
+	font-weight: bold;
+	color: var(--error-red);
+}
+
+@media only screen and (max-width: 700px) {
+	/* Styles for medium breakpoint */
+	.errorMessage {
+		font-size: 0.7rem;
+	}
+	.label{
+		font-size: 0.8rem;
+	}
+	.mainContainer{
+		justify-content: space-between;
+		width: 100%;
+	}
+	.button{
+		font-size: 0.6rem;
+	}
+}

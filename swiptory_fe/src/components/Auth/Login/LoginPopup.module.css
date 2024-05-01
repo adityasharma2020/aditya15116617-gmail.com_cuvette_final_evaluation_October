@@ -1,0 +1,108 @@
+@import '../../../assets/css/main.css';
+
+.mainContainer {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	height: 100%;
+	width: 100%;
+	background-color: var(--backdrop);
+	backdrop-filter: blur(1px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem;
+	transform: translate(-50%, -50%);
+	transition: transform 0.3s ease, opacity 0.3s ease;
+	z-index: 9;
+}
+
+.container {
+	display: flex;
+	text-align: center;
+	flex-direction: column;
+	position: relative;
+	justify-content: center;
+	align-items: center;
+	padding: 2rem 3rem;
+	gap: 2rem;
+	color: black;
+	border-radius: 10px;
+	min-height: 45%;
+	width: 40%;
+	background-color: var(--white-color);
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+		rgba(10, 37, 64, 0.35) 0px -2px 6px 0px;
+}
+
+@media only screen and (max-width: 700px) {
+	.container {
+		width: 90%;
+	}
+}
+
+@media only screen and (min-width: 701px) and (max-width: 1000px) {
+	/* Styles for medium breakpoint */
+	.container {
+		width: 60%;
+	}
+}
+
+.headingContainer h2 {
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+.headingContainer p {
+	font-size: 0.7rem;
+}
+.formContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 2rem;
+	width: 100%;
+	align-items: center;
+}
+
+.errorMessage {
+	font-size: 0.8rem;
+	font-weight: bold;
+	color: var(--error-red);
+}
+
+.button {
+	padding: 0.6rem 1.5rem;
+	border-radius: 20px;
+	border: none;
+	font-size: 1rem;
+	color: black;
+	width: 7rem;
+	height: 2.5rem;
+	font-weight: bold;
+	background-color: var(--button-blue);
+	cursor: pointer;
+	outline: none;
+}
+.button:hover {
+	background-color: #0056b3;
+	color: white;
+}
+
+.button:active {
+	background-color: #004080;
+	color: white;
+}
+
+.CloseIcon {
+	position: absolute;
+	width: 2rem;
+	height: 2rem;
+	top: 1rem;
+	right: 1rem;
+	padding: 0.3rem;
+	fill: var(--error-red);
+	cursor: pointer;
+	border: 2px solid var(--error-red);
+	border-radius: 100%;
+}

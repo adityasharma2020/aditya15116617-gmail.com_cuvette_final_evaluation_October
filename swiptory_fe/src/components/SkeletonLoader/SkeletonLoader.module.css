@@ -1,0 +1,52 @@
+@import '../../assets/css/main.css';
+
+.skeletonContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 2rem;
+}
+
+.skeletonItem {
+	position: relative;
+	width: 250px;
+	height: 400px;
+	overflow: hidden;
+	border-radius: 10px;
+	border: 2px solid rgb(233, 233, 233);
+	animation: pulseAnimation 1.5s infinite ease-in-out; /* Apply the pulsating animation */
+	background-color: rgba(169, 169, 169, 0.148);
+}
+.heading {
+    position: absolute;
+	bottom: 4rem;
+	width: 50%;
+	height: 1rem;
+    margin: 1rem;
+	border-radius: 5px;
+	background-color: rgba(169, 169, 169, 0.148);
+    animation: pulseAnimation 2s infinite ease-in-out; /* Apply the pulsating animation */
+}
+.description{
+    position: absolute;
+	bottom: 0rem;
+	width: 90%;
+	height: 3rem;
+    margin: 1rem;
+	border-radius: 10px;
+	background-color: rgba(215, 215, 215, 0.079);
+    animation: pulseAnimation 2s infinite ease-in-out; /* Apply the pulsating animation */
+}
+
+@keyframes pulseAnimation {
+	0% {
+		background-color: rgba(0, 0, 0, 0.150); /* Start with a lighter background */
+	}
+	50% {
+		background-color: rgba(0, 0, 0, 0.100); /* Peak color */
+	}
+	100% {
+		background-color: rgba(0, 0, 0, 0.150); /* End with a lighter background */
+	}
+}
