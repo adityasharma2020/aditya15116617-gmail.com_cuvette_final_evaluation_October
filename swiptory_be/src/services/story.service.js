@@ -58,41 +58,42 @@ export const likeStory = async ({ userId, storyId }) => {
 
 	return { story, message };
 };
-
 export const bookMarkStory = async ({ userId, storyId }) => {
-	if (!userId) {
-		throw createHttpError.BadRequest('please provide userId.');
-	}
-	if (!storyId) {
-		throw createHttpError.BadRequest('please provide storyId.');
-	}
+    if (!userId) {
+        throw createHttpError.BadRequest('Please provide userId.');
+    }
+    if (!storyId) {
+        throw createHttpError.BadRequest('Please provide storyId.');
+    }
 
-	const story = await StoryModel.findById({ _id: storyId });
-	if (!story) {
-		throw createHttpError.NotFound('story with given id not found.');
-	}
-	const index = story.bookmarks.indexOf(userId);
-	let message;
-	if (index !== -1) {
-		story.bookmarks.splice(index, 1);
-		message = 'story unbokmarked successfully.';
-	} else {
-		story.bookmarks.push(userId);
-		message = 'story bookmarked successfully.';
-	}
+    const story = await StoryModel.findById(storyId);
+    if (!story) {
+        throw createHttpError.NotFound('Story with given id not found.');
+    }
 
-	// update the users bookmarks array also so that we dont have to do nested looping when we want to show all users bookmarks
-	const user = await UserModel.findById(userId);
-	const indexBookmark = user.bookmarks.indexOf(storyId);
+    const index = story.bookmarks.indexOf(userId);
+    let message;
 
-	if (indexBookmark !== -1) {
-		user.bookmarks.splice(index, 1);
-	} else {
-		user.bookmarks.push(storyId);
-	}
-	await user.save();
+    if (index !== -1) {
+        story.bookmarks.splice(index, 1);
+        message = 'Story unbookmarked successfully.';
+    } else {
+        story.bookmarks.push(userId);
+        message = 'Story bookmarked successfully.';
+    }
 
-	await story.save();
+    // Update the user's bookmarks array
+    const user = await UserModel.findById(userId);
+    const indexBookmark = user.bookmarks.indexOf(storyId);
 
-	return { story, message };
+    if (indexBookmark !== -1) {
+        user.bookmarks.splice(indexBookmark, 1); 
+    } else {
+        user.bookmarks.push(storyId);
+    }
+
+    await user.save();
+    await story.save();
+
+    return { story, message };
 };

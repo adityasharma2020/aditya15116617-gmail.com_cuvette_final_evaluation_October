@@ -18,6 +18,7 @@ const BookMarkStories = () => {
 	useEffect(() => {
 		const fetchBookmarkStories = async () => {
 			try {
+				setStoriesLoading(true);
 				const { data } = await fetchBookmarkStoriesApi({ token, page });
 				const newStories = data.data;
 				setRemainingConut(data.remainingCount);
@@ -29,7 +30,7 @@ const BookMarkStories = () => {
 			}
 		};
 		fetchBookmarkStories();
-	}, [dispatch, page, token]);
+	}, [dispatch, page, activeStory, token]);
 
 	//to check whether bookmarks is removed or not , so that we show hte latest bookmarks
 	useEffect(() => {
@@ -38,41 +39,43 @@ const BookMarkStories = () => {
 
 	return (
 		<>
-			{!storiesLoading ? (
-				<>
-					<div className={styles.mainContainer}>
-						<h1 className={styles.h1}>Your BookMark Stories</h1>
-						<div className={styles.container}>
-							{bookmarkStories.length > 0 ? (
-								bookmarkStories?.map((bookmarkStory, index) => {
-									return <SingleStory key={index} story={bookmarkStory} />;
-								})
-							) : (
-								<>
-									<div className={styles.noStories}>
-										No BookMark Stories Available
-									</div>
-								</>
+			<div className={styles.mainContainer}>
+				<h1 className={styles.h1}>Your BookMark Stories</h1>
+				{!storiesLoading ? (
+					<>
+						<div>
+							<div className={styles.container}>
+								{bookmarkStories.length > 0 ? (
+									bookmarkStories?.map((bookmarkStory, index) => {
+										return <SingleStory key={index} story={bookmarkStory} />;
+									})
+								) : (
+									<>
+										<div className={styles.noStories}>
+											No BookMark Stories Available
+										</div>
+									</>
+								)}
+							</div>
+							{remainingCount > 0 && (
+								<button
+									onClick={() => {
+										// setShowMoreClicked(true);
+										setPage((prev) => prev + 1);
+									}}
+									className={styles.showMoreButton}
+								>
+									Show More
+								</button>
 							)}
 						</div>
-						{remainingCount > 0 && (
-							<button
-								onClick={() => {
-									// setShowMoreClicked(true);
-									setPage((prev) => prev + 1);
-								}}
-								className={styles.showMoreButton}
-							>
-								Show More
-							</button>
-						)}
-					</div>
-				</>
-			) : (
-				<>
-					<SkeletonLoader />
-				</>
-			)}
+					</>
+				) : (
+					<>
+						<SkeletonLoader />
+					</>
+				)}
+			</div>
 		</>
 	);
 };
